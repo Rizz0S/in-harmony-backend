@@ -1,5 +1,5 @@
 class PaletteSerializer < ActiveModel::Serializer
-    attributes :id, :name, :colorblind_accessible, :color_hexes, :num_likes, :user_id, :username
+    attributes :id, :name, :colorblind_accessible, :max_contrast, :color_hexes, :num_likes, :user_id, :username
   
     def username
       self.object.user.username

@@ -4,7 +4,7 @@ class PalettesController < ApplicationController
     def create 
       colors = palette_params[:colors]
       colors = colors.map{|color| Color.find_or_create_by(hex: color)}
-      palette = @user.palettes.create(name: palette_params[:name], colorblind_accessible: palette_params[:colorblind_accessible])
+      palette = @user.palettes.create(name: palette_params[:name], colorblind_accessible: palette_params[:colorblind_accessible], max_contrast: palette_params[:max_contrast])
       colors.each {|colorObj| palette.colors << colorObj}
       
 
@@ -32,6 +32,7 @@ class PalettesController < ApplicationController
       params.permit(
           :name,
           :colorblind_accessible,
+          :max_contrast,
           colors: []
       )
     end
