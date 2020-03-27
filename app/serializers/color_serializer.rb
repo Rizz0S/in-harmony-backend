@@ -1,3 +1,3 @@
-class UserSerializer < ActiveModel::Serializer
+class ColorSerializer < ActiveModel::Serializer
     attributes :hex 
   end
